@@ -1,0 +1,1569 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60157577120353,
+          2.4340920026411523
+        ]
+      },
+      "properties": {
+        "asset_type": "feeder",
+        "asset_id": "FD-01",
+        "name": "Feeder 1",
+        "zone": "Zone 1",
+        "voltage_kv": 13.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60215045194244,
+          2.448164500704828
+        ]
+      },
+      "properties": {
+        "asset_type": "feeder",
+        "asset_id": "FD-02",
+        "name": "Feeder 2",
+        "zone": "Zone 2",
+        "voltage_kv": 13.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59184130090053,
+          2.434763267032862
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-01-01",
+        "feeder_id": "FD-01",
+        "name": "Transformer 1-1",
+        "sector": "S-1-1",
+        "capacity_kva": 112.5,
+        "latest_loss_percent": 7.6754,
+        "latest_availability_percent": 100.0,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59987216076297,
+          2.4257380792506487
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-01-02",
+        "feeder_id": "FD-01",
+        "name": "Transformer 1-2",
+        "sector": "S-1-2",
+        "capacity_kva": 225.0,
+        "latest_loss_percent": 33.857,
+        "latest_availability_percent": 83.3333,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60895781647223,
+          2.4353156911229337
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-01-03",
+        "feeder_id": "FD-01",
+        "name": "Transformer 1-3",
+        "sector": "S-1-3",
+        "capacity_kva": 112.5,
+        "latest_loss_percent": 13.8364,
+        "latest_availability_percent": 100.0,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60016554003128,
+          2.446733214099217
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-02-01",
+        "feeder_id": "FD-02",
+        "name": "Transformer 2-1",
+        "sector": "S-2-1",
+        "capacity_kva": 150.0,
+        "latest_loss_percent": 11.6338,
+        "latest_availability_percent": 100.0,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59971415546383,
+          2.451349548765331
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-02-02",
+        "feeder_id": "FD-02",
+        "name": "Transformer 2-2",
+        "sector": "S-2-2",
+        "capacity_kva": 225.0,
+        "latest_loss_percent": 6.3922,
+        "latest_availability_percent": 100.0,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61103432190113,
+          2.4538608243446176
+        ]
+      },
+      "properties": {
+        "asset_type": "transformer",
+        "asset_id": "TR-02-03",
+        "feeder_id": "FD-02",
+        "name": "Transformer 2-3",
+        "sector": "S-2-3",
+        "capacity_kva": 225.0,
+        "latest_loss_percent": 19.8741,
+        "latest_availability_percent": 91.6667,
+        "latest_balance_timestamp": "2026-01-07T23:00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5898148794821,
+          2.435942046318607
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-01-01",
+        "transformer_id": "TR-01-01",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5898518943957,
+          2.4385406296659986
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-001",
+        "transformer_id": "TR-01-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5885126842139,
+          2.43817553268851
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-002",
+        "transformer_id": "TR-01-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59029506427953,
+          2.435794251479851
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-003",
+        "transformer_id": "TR-01-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.58844683810354,
+          2.434285256738092
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-004",
+        "transformer_id": "TR-01-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59052000989998,
+          2.43274727262016
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-005",
+        "transformer_id": "TR-01-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59262867143497,
+          2.4319138687181763
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-006",
+        "transformer_id": "TR-01-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.58633731830618,
+          2.430990583511087
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-007",
+        "transformer_id": "TR-01-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59082403443608,
+          2.440069191434583
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-008",
+        "transformer_id": "TR-01-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59102663731173,
+          2.430355051599877
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-009",
+        "transformer_id": "TR-01-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.58740430594808,
+          2.4334978138256798
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-010",
+        "transformer_id": "TR-01-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.58689651611412,
+          2.428793548249023
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-011",
+        "transformer_id": "TR-01-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59247525575896,
+          2.435435849441336
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-01-012",
+        "transformer_id": "TR-01-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60084140292311,
+          2.4263182801296805
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-01-02",
+        "transformer_id": "TR-01-02",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60448932479562,
+          2.4220101352039927
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-001",
+        "transformer_id": "TR-01-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59436814086284,
+          2.4315969566483826
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-002",
+        "transformer_id": "TR-01-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59432119091797,
+          2.420195715860268
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-003",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60370406917934,
+          2.424242358621602
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-004",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59529650636412,
+          2.424384354834653
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-005",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60133184514201,
+          2.428857876195963
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-006",
+        "transformer_id": "TR-01-02",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6053166710513,
+          2.4314613248678207
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-007",
+        "transformer_id": "TR-01-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59889296525802,
+          2.427881173786399
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-008",
+        "transformer_id": "TR-01-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60011401139951,
+          2.4308118543750323
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-009",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60347634059282,
+          2.420251918440177
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-010",
+        "transformer_id": "TR-01-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59571539825522,
+          2.4316123543414063
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-011",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5939568127926,
+          2.430194573034812
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-02-012",
+        "transformer_id": "TR-01-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.609446874906,
+          2.436300383151039
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-01-03",
+        "transformer_id": "TR-01-03",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60574847271512,
+          2.439207239529812
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-001",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6133863844692,
+          2.435436914964818
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-002",
+        "transformer_id": "TR-01-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6134470294339,
+          2.4299488075358675
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-003",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61355030136092,
+          2.4377628379566016
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-004",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61252038522346,
+          2.437940296346701
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-005",
+        "transformer_id": "TR-01-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60865025845068,
+          2.439133033454897
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-006",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60930660306705,
+          2.4333461757050987
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-007",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61400963855974,
+          2.437827969270941
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-008",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60840924618776,
+          2.438906923697703
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-009",
+        "transformer_id": "TR-01-03",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61214566183507,
+          2.4377258457170656
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-010",
+        "transformer_id": "TR-01-03",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60999574036036,
+          2.441187921255664
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-011",
+        "transformer_id": "TR-01-03",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60460043865038,
+          2.4398864707908547
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-01-03-012",
+        "transformer_id": "TR-01-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60166660342699,
+          2.4446536932861838
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-02-01",
+        "transformer_id": "TR-02-01",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59638291030117,
+          2.444829216328926
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-001",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6018274781475,
+          2.443411776748032
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-002",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60361476229808,
+          2.441329174814775
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-003",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59588828888475,
+          2.446834159321399
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-004",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59944166891583,
+          2.4488898135247976
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-005",
+        "transformer_id": "TR-02-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60262334052089,
+          2.441230889935689
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-006",
+        "transformer_id": "TR-02-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042933772741,
+          2.452536700584252
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-007",
+        "transformer_id": "TR-02-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6028105203584,
+          2.4464120781494314
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-008",
+        "transformer_id": "TR-02-01",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60538373155882,
+          2.449423840548957
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-009",
+        "transformer_id": "TR-02-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60084659958166,
+          2.448744669731064
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-010",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60242429937458,
+          2.443379699129464
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-011",
+        "transformer_id": "TR-02-01",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59524398524427,
+          2.452593576435877
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-01-012",
+        "transformer_id": "TR-02-01",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60005121539385,
+          2.451755853331084
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-02-02",
+        "transformer_id": "TR-02-02",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59979299098232,
+          2.453238048749156
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-001",
+        "transformer_id": "TR-02-02",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60021747466229,
+          2.4487728634614374
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-002",
+        "transformer_id": "TR-02-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60078585861197,
+          2.4564907774963403
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-003",
+        "transformer_id": "TR-02-02",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59885953029669,
+          2.447948886636437
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-004",
+        "transformer_id": "TR-02-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59927835199876,
+          2.4494248918182504
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-005",
+        "transformer_id": "TR-02-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59430446579269,
+          2.453692119627587
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-006",
+        "transformer_id": "TR-02-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6016392886724,
+          2.4509848432277823
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-007",
+        "transformer_id": "TR-02-02",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60327494171528,
+          2.450528368868473
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-008",
+        "transformer_id": "TR-02-02",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60293871926196,
+          2.451794322315409
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-009",
+        "transformer_id": "TR-02-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60433899422573,
+          2.4481472584324555
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-010",
+        "transformer_id": "TR-02-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59726400075004,
+          2.4488915342726942
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-011",
+        "transformer_id": "TR-02-02",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.59887938868546,
+          2.4459233279194
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-02-012",
+        "transformer_id": "TR-02-02",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61149742717451,
+          2.4533112766866685
+        ]
+      },
+      "properties": {
+        "asset_type": "macro_meter",
+        "asset_id": "MM-02-03",
+        "transformer_id": "TR-02-03",
+        "customer_type": "MACRO",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61689585324592,
+          2.453430551842795
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-001",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61347277380999,
+          2.451178749004446
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-002",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61009358419369,
+          2.4496130994678507
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-003",
+        "transformer_id": "TR-02-03",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61053243374943,
+          2.455488338693503
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-004",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61402781412976,
+          2.451662388266864
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-005",
+        "transformer_id": "TR-02-03",
+        "customer_type": "COMMERCIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60906170911325,
+          2.452459766506204
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-006",
+        "transformer_id": "TR-02-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61630455521797,
+          2.4498018529409458
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-007",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61648042381645,
+          2.4549136949010766
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-008",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61699032348328,
+          2.4569131998334357
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-009",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.60823083105987,
+          2.4556051182208334
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-010",
+        "transformer_id": "TR-02-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MODBUS_TCP",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61227160460693,
+          2.450434643202372
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-011",
+        "transformer_id": "TR-02-03",
+        "customer_type": "SMALL_INDUSTRY",
+        "communication_type": "DLMS_SIM",
+        "installation_status": "ACTIVE"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.61176288326705,
+          2.4542340066088277
+        ]
+      },
+      "properties": {
+        "asset_type": "smart_meter",
+        "asset_id": "SM-02-03-012",
+        "transformer_id": "TR-02-03",
+        "customer_type": "RESIDENTIAL",
+        "communication_type": "MQTT",
+        "installation_status": "ACTIVE"
+      }
+    }
+  ]
+}

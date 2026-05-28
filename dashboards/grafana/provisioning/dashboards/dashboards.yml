@@ -1,0 +1,13 @@
+apiVersion: 1
+
+providers:
+  - name: Smart Metering
+    orgId: 1
+    folder: Smart Metering
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/dashboards
+

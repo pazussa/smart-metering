@@ -1,0 +1,99 @@
+{
+  "uid": "smart-metering-loss",
+  "title": "Smart Metering Loss Analysis",
+  "schemaVersion": 39,
+  "version": 3,
+  "refresh": "30s",
+  "timezone": "browser",
+  "time": {
+    "from": "2026-01-01T00:00:00Z",
+    "to": "2026-01-08T00:00:00Z"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Loss percent by transformer",
+      "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT reading_timestamp AS \"time\", transformer_id AS metric, loss_percent::double precision AS value FROM energy_balance ORDER BY reading_timestamp",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 }
+    },
+    {
+      "id": 2,
+      "type": "timeseries",
+      "title": "Input vs measured energy",
+      "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT reading_timestamp AS \"time\", transformer_id || ' input' AS metric, input_energy_kwh::double precision AS value FROM energy_balance UNION ALL SELECT reading_timestamp AS \"time\", transformer_id || ' measured' AS metric, measured_energy_kwh::double precision AS value FROM energy_balance ORDER BY \"time\"",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 }
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Reading availability",
+      "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+          "editorMode": "code",
+          "format": "time_series",
+          "rawQuery": true,
+          "rawSql": "SELECT reading_timestamp AS \"time\", transformer_id AS metric, reading_availability_percent::double precision AS value FROM energy_balance ORDER BY reading_timestamp",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 }
+    },
+    {
+      "id": 4,
+      "type": "bargauge",
+      "title": "Critical sector ranking",
+      "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT transformer_id, AVG(loss_percent) AS avg_loss_percent FROM energy_balance GROUP BY transformer_id ORDER BY avg_loss_percent DESC LIMIT 10",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 }
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "Open alerts",
+      "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+      "targets": [
+        {
+          "datasource": { "type": "postgres", "uid": "smart-metering-postgres" },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT alert_timestamp, entity_type, entity_id, alert_type, severity, alert_message FROM alerts WHERE status = 'OPEN' ORDER BY alert_timestamp DESC LIMIT 100",
+          "refId": "A"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 16 }
+    }
+  ]
+}

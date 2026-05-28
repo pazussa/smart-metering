@@ -1,0 +1,3 @@
+feeder_id,name,voltage_kv,zone,lat,lon
+FD-01,Feeder 1,13.2,Zone 1,2.4340920026411523,-76.60157577120353
+FD-02,Feeder 2,13.2,Zone 2,2.448164500704828,-76.60215045194244

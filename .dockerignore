@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.git/
+logs/
+*.log
+.api.pid
+data/
+docs/screenshots/
+postgres_data/
+grafana_data/
+nodered_data/
+influx_data/
+

@@ -1,0 +1,18 @@
+apiVersion: 1
+
+datasources:
+  - name: Smart Metering PostgreSQL
+    uid: smart-metering-postgres
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    user: smart
+    database: smart_metering
+    secureJsonData:
+      password: smartpass
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1600
+      timescaledb: false
+    isDefault: true
+
