@@ -2,13 +2,11 @@
 
 Sistema reproducible para analizar lecturas de medidores eléctricos, calcular pérdidas de energía, detectar sectores críticos y visualizar resultados en tableros, mapas y una API.
 
-La idea central es sencilla: comparar la energía que entra a una zona de la red con la energía que registran los medidores dentro de esa misma zona. Cuando la diferencia es alta, el sistema genera alertas para orientar revisiones técnicas, mantenimiento o validación de datos.
+El sistema permite comparar la energía que entra a una zona de la red con la energía que registran los medidores dentro de esa misma zona. Cuando la diferencia es alta, el sistema genera alertas para orientar revisiones técnicas, mantenimiento o validación de datos.
 
-> Este repositorio no contiene datos de clientes reales. Usa datos sintéticos para reproducir un flujo completo y auditable, desde la generación de lecturas hasta la consulta de indicadores operativos.
 
 ![Resumen del laboratorio](docs/screenshots/00_demo_cover.png)
 
-## Qué problema resuelve
 
 En una red de distribución eléctrica es normal que una parte de la energía se pierda por causas técnicas, errores de medición, fallas de comunicación o posibles consumos no registrados. El reto operativo es saber dónde mirar primero.
 
@@ -22,9 +20,9 @@ Este proyecto organiza esa tarea en un flujo medible:
 - clasifica alertas por pérdida alta, baja disponibilidad o lectura anómala;
 - muestra resultados en gráficas, mapas, API y base de datos.
 
-## Cómo funciona, sin jerga
+## Cómo funciona
 
-Imagine un barrio alimentado por un transformador. En la entrada del transformador hay un medidor principal, llamado macromedidor. Dentro del barrio hay muchos medidores individuales.
+Supongamos un barrio alimentado por un transformador. En la entrada del transformador hay un medidor principal, llamado macromedidor. Dentro del barrio hay muchos medidores individuales.
 
 El sistema hace esta comparación:
 
@@ -51,9 +49,9 @@ Si la pérdida estimada supera un umbral, el transformador aparece como priorita
 9. Permite revisar resultados en Grafana, mapas GIS y archivos CSV.
 10. Ejecuta pruebas automáticas para validar que el flujo funcione de punta a punta.
 
-## Nivel de realismo y trazabilidad
+## Trazabilidad
 
-El proyecto está construido con criterios que facilitan una revisión seria y una futura adaptación a fuentes certificadas:
+El proyecto está construido con criterios que facilitan una revisión y una futura adaptación a fuentes certificadas:
 
 - datos separados por etapas: activos, lecturas, eventos, balances y alertas;
 - identificadores únicos para alimentadores, transformadores y medidores;
@@ -67,11 +65,11 @@ El proyecto está construido con criterios que facilitan una revisión seria y u
 - simulación eléctrica básica con OpenDSS;
 - gráficas y capturas versionadas en el repositorio.
 
-En un entorno real, este mismo flujo se podría alimentar con lecturas de medidores certificados, inventario real de activos, procedimientos internos de la empresa y normativa aplicable. En este laboratorio, la certificación no se declara: se deja el proceso preparado para ser auditado, repetido y conectado a datos reales.
+En un entorno real, este mismo flujo se podría alimentar con lecturas de medidores certificados, inventario real de activos, procedimientos internos de la empresa y normativa aplicable. .
 
 ## Arquitectura
 
-El siguiente diagrama muestra las piezas principales. No es necesario conocer cada herramienta para entender el flujo: los datos se generan, se validan, se guardan, se analizan y finalmente se muestran para tomar decisiones.
+El siguiente diagrama muestra las piezas principales. Los datos se generan, se validan, se guardan, se analizan y finalmente se muestran para tomar decisiones.
 
 ![Arquitectura](docs/screenshots/01_architecture.png)
 
@@ -290,8 +288,4 @@ El proyecto fue probado con:
 - Node-RED levantado.
 - OpenDSS ejecutando el circuito simple.
 
-## Alcance responsable
 
-Los datos son sintéticos y sirven para reproducir escenarios de análisis sin exponer información real de usuarios o empresas. El laboratorio calcula pérdidas estimadas con reglas visibles y verificables, pero una pérdida oficial requiere medidores certificados, datos reales, procedimientos de campo y validación regulatoria u organizacional.
-
-El valor de este repositorio está en mostrar un flujo completo, trazable y repetible que puede adaptarse a operación real cuando se conecte a fuentes certificadas y a procesos internos de una empresa de energía.
