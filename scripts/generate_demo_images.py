@@ -115,7 +115,7 @@ def plot_cover(data: dict[str, pd.DataFrame], counts: dict[str, int]) -> Path:
     fig.text(
         0.058,
         0.765,
-        "Demo reproducible de macromedicion, telemedicion, PostGIS, Grafana, MQTT y OpenDSS",
+        "Laboratorio reproducible de macromedicion, telemedicion, PostGIS, Grafana, MQTT y OpenDSS",
         fontsize=15,
         color="#cbd5e1",
     )
@@ -494,13 +494,16 @@ def plot_validation(data: dict[str, pd.DataFrame], counts: dict[str, int]) -> Pa
         ("Grafana", "OK", f"base de datos = {grafana_health['database']}"),
         ("MQTT", "OK", "publicacion y consumo probados"),
         ("OpenDSS", opendss["status"].upper(), opendss.get("circuit", "n/a")),
-        ("Evidencia GIS", "OK", "GeoJSON y mapa PNG generados"),
+        ("Mapa GIS", "OK", "GeoJSON y mapa PNG generados"),
     ]
     fig, ax = plt.subplots(figsize=(13.33, 7.5), facecolor="white")
     ax.axis("off")
     ax.set_title("Pruebas de validacion ejecutadas", fontsize=24, weight="bold", pad=20)
     table = ax.table(
-        cellText=rows, colLabels=["Componente", "Estado", "Evidencia"], loc="center", cellLoc="left"
+        cellText=rows,
+        colLabels=["Componente", "Estado", "Validacion"],
+        loc="center",
+        cellLoc="left",
     )
     table.auto_set_font_size(False)
     table.set_fontsize(12)
@@ -528,10 +531,11 @@ def capture_url(url: str, filename: str, width: int = 1600, height: int = 1000) 
     output = SCREENSHOT_DIR / filename
     command = [
         browser,
-        "--headless",
+        "--headless=new",
         "--no-sandbox",
         "--disable-gpu",
         "--disable-dev-shm-usage",
+        "--run-all-compositor-stages-before-draw",
         f"--window-size={width},{height}",
         "--hide-scrollbars",
         "--force-device-scale-factor=1",
@@ -568,9 +572,9 @@ def write_report(images: list[Path], screenshots: list[Path], counts: dict[str, 
     lines = [
         "# Smart Metering Demo Pack",
         "",
-        "Imagenes generadas para demostrar el proyecto con datos y servicios reales.",
+        "Imagenes generadas para documentar el proyecto con datos y servicios reales.",
         "",
-        "## Evidencia de datos",
+        "## Resumen de datos",
         "",
         f"- Feeders: {counts['feeders']}",
         f"- Transformers: {counts['transformers']}",
@@ -613,7 +617,7 @@ def write_report(images: list[Path], screenshots: list[Path], counts: dict[str, 
             <body>
               <header>
                 <h1>Smart Metering Demo Pack</h1>
-                <p>Graficas, capturas y evidencias generadas desde el proyecto ejecutado.</p>
+                <p>Graficas y capturas generadas desde el proyecto ejecutado.</p>
               </header>
               <main>{cards}</main>
             </body>

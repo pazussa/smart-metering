@@ -1,136 +1,172 @@
 # Smart Metering & Loss Analysis Lab
 
-Laboratorio reproducible de **macromedicion, telemedicion y analisis de perdidas de energia** construido con Python, PostgreSQL/PostGIS, Grafana OSS, FastAPI, MQTT/Mosquitto, Node-RED, OpenDSS y datos sinteticos.
+Sistema reproducible para analizar lecturas de medidores eléctricos, calcular pérdidas de energía, detectar sectores críticos y visualizar resultados en tableros, mapas y una API.
 
-Este proyecto fue desarrollado como evidencia de portafolio para aplicar a cargos como **Profesional de Gestion de Perdidas**, **Profesional de Macromedicion**, **Analista de Perdidas de Energia** o roles afines en medicion inteligente, balances energeticos y gestion de informacion tecnica.
+La idea central es sencilla: comparar la energía que entra a una zona de la red con la energía que registran los medidores dentro de esa misma zona. Cuando la diferencia es alta, el sistema genera alertas para orientar revisiones técnicas, mantenimiento o validación de datos.
 
-> El laboratorio no se conecta a infraestructura real. Simula una red de distribucion, genera lecturas sinteticas, calcula balances por transformador, estima perdidas, detecta alertas, publica telemetria por MQTT y expone resultados en base de datos, API, mapas y tableros.
+> Este repositorio no contiene datos de clientes reales. Usa datos sintéticos para reproducir un flujo completo y auditable, desde la generación de lecturas hasta la consulta de indicadores operativos.
 
 ![Resumen del laboratorio](docs/screenshots/00_demo_cover.png)
 
-## Objetivo
+## Qué problema resuelve
 
-Demostrar capacidades tecnicas para ejecutar actividades de cargue, validacion y analisis de informacion orientadas a:
+En una red de distribución eléctrica es normal que una parte de la energía se pierda por causas técnicas, errores de medición, fallas de comunicación o posibles consumos no registrados. El reto operativo es saber dónde mirar primero.
 
-- identificar sectores y clientes a intervenir en programas de reduccion y control de perdidas;
-- calcular balances energeticos por transformador, alimentador o sector;
-- analizar disponibilidad de telemedicion y lecturas faltantes;
-- detectar lecturas atipicas y posibles fallas de comunicacion;
-- soportar decisiones de mantenimiento, expansion de cobertura de macromedicion y medicion inteligente;
-- documentar un flujo reproducible con herramientas gratuitas.
+Este proyecto organiza esa tarea en un flujo medible:
 
-## Relacion con cargos de gestion de perdidas
+- recibe lecturas de medidores y macromedidores;
+- revisa si faltan lecturas o si hay valores atípicos;
+- calcula cuánta energía entró a cada transformador;
+- calcula cuánta energía fue medida en los usuarios asociados;
+- estima la diferencia en kWh y porcentaje;
+- clasifica alertas por pérdida alta, baja disponibilidad o lectura anómala;
+- muestra resultados en gráficas, mapas, API y base de datos.
 
-Este proyecto se alinea con funciones tipicas de gestion de perdidas de energia:
+## Cómo funciona, sin jerga
 
-| Requisito del cargo | Evidencia en el proyecto |
-|---|---|
-| Analisis para gestion de perdidas | Calculo de perdida kWh, perdida porcentual, ranking de transformadores criticos y alertas |
-| Balances energeticos | Balance entre energia de macromedidor y suma de medidores aguas abajo |
-| Estrategias de reduccion de perdidas | Identificacion de sectores con alta perdida y baja disponibilidad |
-| Macromedicion directa, semidirecta, convencional o telemedida | Simulacion de macromedidores por transformador y medidores inteligentes asociados |
-| Sistemas de comunicacion | MQTT/Mosquitto, Node-RED, Modbus y exploracion OpenDSS |
-| Analisis de datos | Python, pandas, validacion de calidad, API y PostgreSQL/PostGIS |
-| Visualizacion operativa | Graficas, mapas GIS, FastAPI Swagger y dashboard Grafana |
+Imagine un barrio alimentado por un transformador. En la entrada del transformador hay un medidor principal, llamado macromedidor. Dentro del barrio hay muchos medidores individuales.
+
+El sistema hace esta comparación:
+
+```text
+energía que entró al transformador
+-
+energía medida en los usuarios asociados
+=
+pérdida estimada
+```
+
+Si la pérdida estimada supera un umbral, el transformador aparece como prioritario. Si además faltan lecturas o hay medidores con valores extraños, el sistema deja una alerta para revisar la causa.
+
+## Flujo completo
+
+1. Crea una red sintética con alimentadores, transformadores, macromedidores y medidores.
+2. Genera lecturas horarias de energía.
+3. Simula fallas comunes: lecturas faltantes, lecturas atípicas y eventos de comunicación.
+4. Calcula balances energéticos por transformador.
+5. Genera alertas operativas.
+6. Carga la información en PostgreSQL/PostGIS.
+7. Expone consultas por FastAPI.
+8. Publica telemetría por MQTT.
+9. Permite revisar resultados en Grafana, mapas GIS y archivos CSV.
+10. Ejecuta pruebas automáticas para validar que el flujo funcione de punta a punta.
+
+## Nivel de realismo y trazabilidad
+
+El proyecto está construido con criterios que facilitan una revisión seria y una futura adaptación a fuentes certificadas:
+
+- datos separados por etapas: activos, lecturas, eventos, balances y alertas;
+- identificadores únicos para alimentadores, transformadores y medidores;
+- marcas de tiempo en las lecturas;
+- reglas explícitas para calcular pérdidas y disponibilidad;
+- vistas SQL para consultar el último balance y las alertas abiertas;
+- georreferenciación de activos mediante GeoJSON/PostGIS;
+- pruebas automatizadas de cálculo, calidad de datos y protocolos;
+- validación de servicios con Docker;
+- API documentada para consultar resultados;
+- simulación eléctrica básica con OpenDSS;
+- gráficas y capturas versionadas en el repositorio.
+
+En un entorno real, este mismo flujo se podría alimentar con lecturas de medidores certificados, inventario real de activos, procedimientos internos de la empresa y normativa aplicable. En este laboratorio, la certificación no se declara: se deja el proceso preparado para ser auditado, repetido y conectado a datos reales.
 
 ## Arquitectura
 
-El flujo principal genera activos, lecturas y eventos; calcula indicadores; carga los resultados en PostgreSQL/PostGIS; y los expone mediante API, mapas, tableros y protocolos de telemedicion.
+El siguiente diagrama muestra las piezas principales. No es necesario conocer cada herramienta para entender el flujo: los datos se generan, se validan, se guardan, se analizan y finalmente se muestran para tomar decisiones.
 
 ![Arquitectura](docs/screenshots/01_architecture.png)
 
-Componentes principales:
+| Componente | Para qué sirve |
+|---|---|
+| Python | Genera datos, calcula pérdidas, revisa calidad y crea alertas |
+| PostgreSQL/PostGIS | Guarda lecturas, activos, balances, alertas y ubicaciones |
+| FastAPI | Permite consultar resultados desde un navegador o sistema externo |
+| Grafana | Muestra tableros de seguimiento |
+| MQTT/Mosquitto | Simula envío de lecturas como lo haría un sistema de telemedición |
+| Node-RED | Permite armar flujos visuales de comunicación |
+| OpenDSS | Simula una red eléctrica básica |
+| GeoJSON/QGIS | Permite ver activos y sectores críticos en un mapa |
 
-- **Python**: generacion sintetica, calculo de balances, deteccion de alertas y pruebas.
-- **PostgreSQL/PostGIS**: almacenamiento de activos, lecturas, balances, alertas y geometria.
-- **FastAPI**: API REST para consultar balances y alertas.
-- **Grafana OSS**: tablero operacional conectado a PostgreSQL.
-- **Mosquitto MQTT**: broker para simular telemedicion.
-- **Node-RED**: entorno visual para flujos de telemetria.
-- **OpenDSS**: simulacion electrica basica de red de distribucion.
-- **GeoJSON/QGIS**: visualizacion geografica de activos y sectores criticos.
+## Datos generados
 
-## Resultados generados
-
-El escenario sintetico validado genera:
+El escenario validado incluye:
 
 - 2 alimentadores.
 - 6 transformadores.
 - 78 medidores, incluyendo macromedidores.
 - 11.737 lecturas horarias de medidores.
-- 359 eventos de comunicacion.
-- 1.008 balances energeticos.
+- 359 eventos de comunicación.
+- 1.008 balances energéticos.
 - 948 alertas operativas.
 - 86 elementos GIS exportados.
 
 ![Resumen de indicadores](docs/screenshots/02_kpi_summary.png)
 
-## Indicadores tecnicos
+## Indicadores principales
 
-| Indicador | Logica |
+| Indicador | Qué significa |
 |---|---|
-| Energia suministrada | Lectura del macromedidor por transformador |
-| Energia medida | Suma de lecturas de medidores aguas abajo |
-| Perdida kWh | Energia suministrada - energia medida |
-| Perdida % | Perdida kWh / energia suministrada * 100 |
-| Disponibilidad de lecturas | Lecturas recibidas / lecturas esperadas * 100 |
-| Alertas de perdida alta | Perdida porcentual mayor al umbral configurado |
-| Alertas de baja disponibilidad | Disponibilidad menor al umbral configurado |
-| Lecturas atipicas | Lecturas marcadas como anomalas o fuera de rango |
+| Energía suministrada | Energía registrada por el macromedidor de un transformador |
+| Energía medida | Suma de la energía registrada por los medidores asociados |
+| Pérdida kWh | Diferencia entre energía suministrada y energía medida |
+| Pérdida % | Pérdida comparada contra la energía suministrada |
+| Disponibilidad de lecturas | Porcentaje de lecturas recibidas frente a las esperadas |
+| Alerta de pérdida alta | Aviso cuando la pérdida supera el umbral configurado |
+| Alerta de baja disponibilidad | Aviso cuando faltan demasiadas lecturas |
+| Lectura atípica | Valor inusual que conviene revisar antes de tomar decisiones |
 
-## Evidencias visuales
+## Visualizaciones
 
-### Perdidas por transformador
+### Pérdidas por transformador
 
-La linea roja punteada representa el umbral de perdida alta. El grafico permite priorizar transformadores o sectores con comportamiento critico.
+Cada línea muestra cómo cambia la pérdida de un transformador en el tiempo. La línea roja punteada es el límite definido para marcar pérdida alta.
 
-![Perdidas por transformador](docs/screenshots/03_loss_timeseries.png)
+![Pérdidas por transformador](docs/screenshots/03_loss_timeseries.png)
 
-### Balance energetico reciente
+### Balance energético reciente
 
-Compara energia de entrada, energia medida y perdida estimada por transformador.
+Compara, para cada transformador, la energía que entró, la energía medida y la diferencia estimada.
 
-![Balance energetico](docs/screenshots/04_energy_balance_latest.png)
+![Balance energético](docs/screenshots/04_energy_balance_latest.png)
 
-### Disponibilidad de telemedicion
+### Disponibilidad de telemedición
 
-La matriz muestra la disponibilidad de lecturas por transformador y ventana horaria.
+Muestra si las lecturas llegaron completas. Un valor bajo no siempre significa pérdida de energía; también puede indicar problemas de comunicación o carga de datos.
 
 ![Disponibilidad](docs/screenshots/05_availability_heatmap.png)
 
-### Ranking de sectores criticos
+### Ranking de sectores críticos
 
-Ordena transformadores por perdida promedio para apoyar la priorizacion de intervenciones.
+Ordena los transformadores con mayor pérdida promedio para ayudar a priorizar las visitas o revisiones.
 
-![Ranking critico](docs/screenshots/06_critical_ranking.png)
+![Ranking crítico](docs/screenshots/06_critical_ranking.png)
 
 ### Alertas operativas
 
-Resume alertas por tipo y severidad: perdida alta, baja disponibilidad y lecturas atipicas.
+Resume cuántas alertas existen por tipo y severidad.
 
 ![Alertas](docs/screenshots/07_alerts_breakdown.png)
 
 ### Mapa GIS de activos
 
-Ubica alimentadores, transformadores, macromedidores y medidores inteligentes. El color de cada transformador representa la ultima perdida porcentual calculada.
+Ubica alimentadores, transformadores, macromedidores y medidores. El color ayuda a identificar zonas con mayor pérdida estimada.
 
 ![Mapa GIS](docs/screenshots/08_gis_assets_map.png)
 
 ### Modelo de datos
 
-Modelo relacional usado para activos, lecturas, macromedicion, balances y alertas.
+Muestra cómo se relacionan los activos, lecturas, balances y alertas dentro de la base de datos.
 
 ![Modelo de datos](docs/screenshots/09_data_model.png)
 
-### Validacion ejecutada
+### Validación ejecutada
 
-Pruebas de servicios, base de datos, telemetria, OpenDSS, API y evidencia GIS.
+Resume las pruebas usadas para comprobar que el laboratorio funciona.
 
-![Validacion](docs/screenshots/10_validation_matrix.png)
+![Validación](docs/screenshots/10_validation_matrix.png)
 
 ### API REST
 
-FastAPI expone endpoints para salud, ultimos balances y alertas abiertas.
+La API permite consultar el estado del sistema, los últimos balances y las alertas abiertas.
 
 ![FastAPI Swagger](docs/screenshots/11_fastapi_swagger.png)
 
@@ -139,21 +175,21 @@ FastAPI expone endpoints para salud, ultimos balances y alertas abiertas.
 ```text
 .
 ├── data/
-│   ├── synthetic/              # datos sinteticos generados
+│   ├── synthetic/              # datos sintéticos generados
 │   └── processed/              # balances y alertas calculadas
-├── dashboards/grafana/         # dashboard y provisioning de Grafana
+├── dashboards/grafana/         # dashboard y configuración de Grafana
 ├── docs/
-│   └── screenshots/            # imagenes usadas en este README
-├── maps/                       # GeoJSON para QGIS
-├── mqtt/                       # configuracion de Mosquitto
-├── opendss/                    # caso basico OpenDSS
-├── scripts/                    # ejecucion y generacion de demo
-├── sql/                        # extensiones, esquema y vistas PostGIS
-├── src/                        # codigo Python del laboratorio
+│   └── screenshots/            # imágenes usadas en este README
+├── maps/                       # archivo GeoJSON para mapas
+├── mqtt/                       # configuración de Mosquitto
+├── opendss/                    # caso básico OpenDSS
+├── scripts/                    # ejecución y generación de demo
+├── sql/                        # esquema, vistas y consultas SQL
+├── src/                        # código Python del laboratorio
 └── tests/                      # pruebas automatizadas
 ```
 
-## Ejecucion rapida
+## Cómo ejecutarlo
 
 Requisitos:
 
@@ -161,7 +197,7 @@ Requisitos:
 - Docker y Docker Compose.
 - Git.
 
-Crear entorno:
+Crear entorno local:
 
 ```bash
 python3 -m venv .venv
@@ -169,32 +205,23 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Ejecutar flujo local sin contenedores:
+Ejecutar el flujo local sin contenedores:
 
 ```bash
 ./scripts/run_local_mvp.sh
 ```
 
-Levantar laboratorio completo con Docker:
+Levantar el laboratorio completo:
 
 ```bash
 ./scripts/run_docker_stack.sh
 ```
 
-El script:
-
-1. valida el entorno;
-2. genera activos y lecturas sinteticas;
-3. calcula balances energeticos;
-4. detecta alertas;
-5. exporta GeoJSON;
-6. levanta PostgreSQL/PostGIS, Grafana, Mosquitto, Node-RED, InfluxDB y FastAPI;
-7. carga la base de datos;
-8. prueba PostgreSQL, MQTT, API y pytest.
+El script prepara los datos, calcula indicadores, levanta los servicios, carga la base de datos y ejecuta pruebas de funcionamiento.
 
 ## URLs locales
 
-Con Docker ejecutandose:
+Con Docker ejecutándose:
 
 | Servicio | URL |
 |---|---|
@@ -212,15 +239,15 @@ usuario: admin
 clave: admin
 ```
 
-## Comandos utiles
+## Comandos útiles
 
-Diagnostico del entorno:
+Diagnóstico del entorno:
 
 ```bash
 python -m src.doctor --require-docker
 ```
 
-Regenerar imagenes de demo:
+Regenerar imágenes de demo:
 
 ```bash
 python scripts/generate_demo_images.py
@@ -248,14 +275,14 @@ Apagar servicios:
 docker-compose down
 ```
 
-## Validacion realizada
+## Validación realizada
 
 El proyecto fue probado con:
 
 - `pytest`: 18 pruebas automatizadas.
-- `ruff`: analisis estatico.
+- `ruff`: análisis estático.
 - `black --check`: formato.
-- `docker-compose config`: validacion de Compose.
+- `docker-compose config`: validación de Compose.
 - Smoke test de PostgreSQL/PostGIS.
 - Smoke test MQTT publish/subscribe.
 - FastAPI contra PostgreSQL.
@@ -263,6 +290,8 @@ El proyecto fue probado con:
 - Node-RED levantado.
 - OpenDSS ejecutando el circuito simple.
 
-## Nota de alcance
+## Alcance responsable
 
-Los datos son sinteticos y el laboratorio no representa una certificacion oficial de perdidas. Su proposito es demostrar dominio practico en analisis de datos, macromedicion, telemedicion, visualizacion tecnica y gestion operativa de perdidas de energia.
+Los datos son sintéticos y sirven para reproducir escenarios de análisis sin exponer información real de usuarios o empresas. El laboratorio calcula pérdidas estimadas con reglas visibles y verificables, pero una pérdida oficial requiere medidores certificados, datos reales, procedimientos de campo y validación regulatoria u organizacional.
+
+El valor de este repositorio está en mostrar un flujo completo, trazable y repetible que puede adaptarse a operación real cuando se conecte a fuentes certificadas y a procesos internos de una empresa de energía.
